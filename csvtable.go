@@ -2,11 +2,6 @@ package csvtable
 
 import (
 	"encoding/csv"
-	"errors"
-)
-
-var (
-	NoData = errors.New("no data")
 )
 
 //CsvTable is CSV/TSV table class

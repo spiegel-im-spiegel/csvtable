@@ -42,12 +42,11 @@ func main() {
 	}
 	//fmt.Println("cols :", ct.Cols())
 	//fmt.Println("rows :", ct.Rows())
-	cols := "city/temperature"
 	w := csv.NewWriter(os.Stdout)
 	w.Comma = cr.Comma
 	//w.UseCRLF = true
-	//w.WriteAll(ct.OutputAll())
-	header, body := ct.Output(strings.Split(cols, "/"))
+	//header, body := ct.OutputAll()
+	header, body := ct.Output(strings.Split("city/temperature", "/"))
 	w.Write(header)
 	w.WriteAll(body)
 }
