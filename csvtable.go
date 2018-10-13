@@ -120,8 +120,12 @@ func (ct *CsvTable) getElement(row, col int) string {
 	if ct == nil {
 		return ""
 	}
-	if col < 0 || col >= ct.Cols() || row < 0 || row >= ct.Rows() {
+	if row < 0 || row >= ct.Rows() || col < 0 {
 		return ""
 	}
-	return ct.body[row][col]
+	rowdata := ct.body[row]
+	if col >= len(rowdata) {
+		return ""
+	}
+	return rowdata[col]
 }
